@@ -2,7 +2,8 @@ library(shiny)
 library(shinythemes)
 
 shinyUI(fluidPage(theme = shinytheme("yeti"),
-  titlePanel("Convert Data Types"),
+  titlePanel("ThisNotThatStat"),
+  h4("Converts file formats between SPSS, STATA, and .csv"),
   sidebarLayout(
     sidebarPanel(
       fileInput('file1', label = p(h3('Upload a file'),'(types: .csv,.sav,.dta)'),
@@ -27,9 +28,17 @@ shinyUI(fluidPage(theme = shinytheme("yeti"),
       p(),
       p(),
       HTML("<hr>"),
-      p("Send an email to ", 
-      HTML("<a href='mailto:thisnotthatstat@gmail.com' target='_top'>thisnotthatstat@gmail.com</a>"),
-      " to report issues, request features, or additonal data services.")
+      p("ThisNotThatStat is built on the", 
+        a(link = 'https://shiny.rstudio.com/', 'shiny development framework for R'), 
+        ' and uses', 
+        a(link='https://github.com/tidyverse/haven', 'haven'), 'to perform file conversions.'),
+      HTML("<hr>"),
+      p("Please log issues or feature requests to", 
+        a(link = 'https://github.com/rkbarney/thisnotthatstat', 'github.')), 
+      HTML("<hr>"),
+      p("Contact ", 
+      HTML("<a href='mailto:rkbarney@gmail.com' target='_top'>rkbarney@gmail.com</a>"),
+      " for other inquiries.")
       ),
     mainPanel(
       tableOutput('contents')
