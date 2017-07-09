@@ -2,6 +2,7 @@ library(shiny)
 library(shinythemes)
 
 shinyUI(fluidPage(theme = shinytheme("yeti"),
+  tags$head(includeScript("google-analytics.js")),
   titlePanel("ThisNotThatStat"),
   h4("Converts file formats between SPSS, STATA, and .csv"),
   sidebarLayout(
